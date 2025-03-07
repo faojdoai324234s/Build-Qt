@@ -108,7 +108,6 @@ jobs:
           -skip qtlottie ^
           -skip qtmacextras ^
           -skip qtmultimedia ^
-          -skip qtnetwork ^
           -skip qtnetworkauth ^
           -skip qtpim ^
           -skip qtpurchasing ^
