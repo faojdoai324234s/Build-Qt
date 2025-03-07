@@ -71,7 +71,7 @@ jobs:
           -no-freetype ^
           -no-harfbuzz ^
           -no-gtk ^
-          -opengl es2 ^
+          -opengl ^
           -egl ^
           -no-direct2d ^
           -no-eglfs ^
