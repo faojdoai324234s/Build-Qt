@@ -106,7 +106,6 @@ jobs:
           -skip qtlocation ^
           -skip qtlottie ^
           -skip qtmacextras ^
-          -skip qtmultimedia ^
           -skip qtnetworkauth ^
           -skip qtpim ^
           -skip qtpurchasing ^
@@ -126,6 +125,7 @@ jobs:
           -skip qtsystems ^
           -skip qttools ^
           -skip qttranslations ^
+          -skip qtvirtualkeyboard ^
           -skip qtwayland ^
           -skip qtwebchannel ^
           -skip qtwebengine ^
