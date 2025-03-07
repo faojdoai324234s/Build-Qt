@@ -149,7 +149,7 @@ jobs:
           nmake install
 
       - name: List directory
-        working-directory: C:/qt-everywhere-src-${{ env.Qt_patch_version }}
+        working-directory: C:/Qt/Qt-${{ env.Qt_patch_version }}
         shell: cmd
         run: |
           dir /s
@@ -158,6 +158,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Windows-artifact
-          path: C:/qt-everywhere-src-${{ env.Qt_patch_version }}
+          path: C:/Qt/Qt-${{ env.Qt_patch_version }}
           if-no-files-found: ignore
           retention-days: 0
