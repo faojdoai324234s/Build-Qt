@@ -11,7 +11,6 @@ on:
 env:
   Qt_minor_version: 5.15
   Qt_patch_version: 5.15.16
-  openssl_location: C:\Program Files\OpenSSL
   sevenzip_location: C:\Program Files\7-Zip
   BUILD_TYPE: Debug
   
