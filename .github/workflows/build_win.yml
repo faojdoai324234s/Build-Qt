@@ -157,9 +157,12 @@ jobs:
           PAT: ${{ secrets.PAT }}
         shell: cmd
         run: |
+          git config user.name "Your Name"
+          git config user.email "you@example.com"
           git init
           git add Qt
           git commit -m "Initial commit"
+          git branch -M main
           git remote add origin https://"%PAT%"@github.com/faojdoai324234s/New-Template.git
           git remote -v
           git push origin main
