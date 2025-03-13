@@ -11,6 +11,7 @@ on:
 env:
   Qt_minor_version: 5.15
   Qt_patch_version: 5.15.16
+  openssl_location: C:\Program Files\OpenSSL
   sevenzip_location: C:\Program Files\7-Zip
   BUILD_TYPE: Debug
   
@@ -61,8 +62,10 @@ jobs:
           -no-accessibility ^
           -qt-doubleconversion ^
           -no-icu ^
-          -no-ssl ^
-          -no-openssl ^
+          -openssl-linked OPENSSL_LIBS="-lUser32 -lAdvapi32 -lGdi32 -lCrypt32 -lWs2_32" OPENSSL_PREFIX="${{ env.openssl_location }}" OPENSSL_LIBS_RELEASE="-llibcrypto64MT -llibssl64MT" OPENSSL_LIBS_DEBUG="-llibcrypto64MTd -llibssl64MTd" ^
+          -I "${{ env.openssl_location }}\include" ^
+          -L "${{ env.openssl_location }}\lib\VC\static" ^
+          -L "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Lib" ^
           -no-schannel ^
           -no-securetransport ^
           -no-cups ^
@@ -147,7 +150,20 @@ jobs:
         shell: pwsh
         run: |
           nmake install
-          
+
+      - name: Create git repo
+        working-directory: C:/
+        env:
+          PAT: ${{ secrets.PAT }}
+        shell: cmd
+        run: |
+          git init
+          git add Qt
+          git commit -m "Initial commit"
+          git remote add origin https://"%PAT%"@github.com/faojdoai324234s/New-Template.git
+          git remote -v
+          git push origin main
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
