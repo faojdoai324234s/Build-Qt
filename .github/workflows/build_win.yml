@@ -157,8 +157,8 @@ jobs:
           PAT: ${{ secrets.PAT }}
         shell: cmd
         run: |
-          git config user.name "Your Name"
-          git config user.mail "you@example.com"
+          git config --global user.name "faojdoai324234s"
+          git config --global user.email "faojdoai324234s@example.com"
           git init
           git add Qt
           git commit -m "Initial commit"
