@@ -141,16 +141,16 @@ jobs:
           sudo make install
           
       - name: Upload library to Github
+        working-directory: /usr/local
         env:
           PAT: ${{ secrets.PAT }}
         run: |
-          mkdir Qt-Linux
-          cp -r /usr/local/Qt-${{ env.Qt_patch_version }} Qt-Linux
-          git config --global user.name "faojdoai324234s"
-          git config --global user.email "faojdoai324234s@example.com"
-          git clone https://"$PAT"@github.com/faojdoai324234s/Project-Template.git
-          cd Project-Template
-          git add ${{ github.workspace }}/Qt-Linux
-          git add ${{ github.workspace }}/Qt-Linux/*
-          git commit -m "Add Qt-Linux"
-          git push origin main
+          sudo git config --global user.name "faojdoai324234s"
+          sudo git config --global user.email "faojdoai324234s@example.com"
+          sudo git init
+          sudo git add Qt-${{ env.Qt_patch_version }}
+          sudo git commit -m "Initial commit"
+          sudo git branch -M main
+          sudo git remote add origin https://"%PAT%"@github.com/faojdoai324234s/Qt-Linux.git
+          sudo git remote -v
+          sudo git push origin main
