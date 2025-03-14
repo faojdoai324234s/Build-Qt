@@ -20,7 +20,7 @@ jobs:
       - name: Download Qt ${{ env.Qt_patch_version }}
         run: |
           openssl version -a
-          ls -R /usr/local/etc/openssl@1.1
+          ls -R /usr/local/Cellar/openssl@1.1/1.1.1w
           test
           wget https://download.qt.io/archive/qt/${{ env.Qt_minor_version }}/${{ env.Qt_patch_version }}/single/qt-everywhere-opensource-src-${{ env.Qt_patch_version }}.tar.xz
           
