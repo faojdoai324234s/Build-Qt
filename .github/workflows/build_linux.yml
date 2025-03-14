@@ -148,10 +148,10 @@ jobs:
           sudo mkdir Qt-Linux
           sudo cp -r Qt-${{ env.Qt_patch_version }} Qt-Linux
           sudo rm -rf Qt-${{ env.Qt_patch_version }}
-          git config --global user.name "faojdoai324234s"
-          git config --global user.email "faojdoai324234s@example.com"
-          git clone https://"$PAT"@github.com/faojdoai324234s/Project-Template.git
-          git add Qt-Linux
-          git add Qt-Linux/*
-          git commit -m "Add Qt-Linux"
-          git push origin main
+          sudo git config --global user.name "faojdoai324234s"
+          sudo git config --global user.email "faojdoai324234s@example.com"
+          sudo git clone https://"$PAT"@github.com/faojdoai324234s/Project-Template.git
+          sudo git add Qt-Linux
+          sudo git add Qt-Linux/*
+          sudo git commit -m "Add Qt-Linux"
+          sudo git push origin main
