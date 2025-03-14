@@ -11,7 +11,7 @@ on:
 env:
   Qt_minor_version: 5.15
   Qt_patch_version: 5.15.16
-  openssl_location: /usr/local/Cellar/openssl@3/3.3.2
+  openssl_location: /usr/local/Cellar/openssl@1.1/1.1.1w
   
 jobs:
   build:
@@ -19,9 +19,6 @@ jobs:
     steps:        
       - name: Download Qt ${{ env.Qt_patch_version }}
         run: |
-          openssl version -a
-          ls -R /usr/local/Cellar/openssl@1.1/1.1.1w
-          test
           wget https://download.qt.io/archive/qt/${{ env.Qt_minor_version }}/${{ env.Qt_patch_version }}/single/qt-everywhere-opensource-src-${{ env.Qt_patch_version }}.tar.xz
           
       - name: Extract Qt ${{ env.Qt_patch_version }}
