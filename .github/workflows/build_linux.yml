@@ -142,6 +142,7 @@ jobs:
           
       - name: Upload library to Github
         working-directory: /usr/local
+        shell: bash
         env:
           PAT: ${{ secrets.PAT }}
         run: |
