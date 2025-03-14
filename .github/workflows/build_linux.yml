@@ -149,7 +149,8 @@ jobs:
           git config --global user.name "faojdoai324234s"
           git config --global user.email "faojdoai324234s@example.com"
           git clone https://"$PAT"@github.com/faojdoai324234s/Project-Template.git
-          git add Qt-Linux
-          git add Qt-Linux/*
+          cd Project-Template
+          git add ${{ github.workspace }}/Qt-Linux
+          git add ${{ github.workspace }}/Qt-Linux/*
           git commit -m "Add Qt-Linux"
           git push origin main
