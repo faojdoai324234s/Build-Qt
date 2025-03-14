@@ -145,13 +145,13 @@ jobs:
         env:
           PAT: ${{ secrets.PAT }}
         run: |
+          mkdir Qt-Linux
+          cp -r Qt-${{ env.Qt_patch_version }} Qt-Linux
+          rm -rf Qt-${{ env.Qt_patch_version }}
           git config --global user.name "faojdoai324234s"
           git config --global user.email "faojdoai324234s@example.com"
           git clone https://"$PAT"@github.com/faojdoai324234s/Project-Template.git
-          mkdir Project-Template/Qt-Linux
-          cp -r Qt-${{ env.Qt_patch_version }} Project-Template/Qt-Linux
-          rm -rf Qt-${{ env.Qt_patch_version }}
-          git add Project-Template/Qt-Linux
-          git add Project-Template/Qt-Linux/*
+          git add Qt-Linux
+          git add Qt-Linux/*
           git commit -m "Add Qt-Linux"
           git push origin main
