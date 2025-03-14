@@ -26,10 +26,6 @@ jobs:
           tar -xf qt-everywhere-opensource-src-${{ env.Qt_patch_version }}.tar.xz
           rm -f qt-everywhere-opensource-src-${{ env.Qt_patch_version }}.tar.xz
 
-      - name: Install dependencies
-        run: |
-          brew update
-
       - name: Configure Qt ${{ env.Qt_patch_version }}
         working-directory: qt-everywhere-src-${{ env.Qt_patch_version }}
         run: |
@@ -124,7 +120,7 @@ jobs:
       - name: Build Qt ${{ env.Qt_patch_version }}
         working-directory: qt-everywhere-src-${{ env.Qt_patch_version }}
         run: |
-          make_aaa
+          make
           
       - name: Install Qt ${{ env.Qt_patch_version }}
         working-directory: qt-everywhere-src-${{ env.Qt_patch_version }}
@@ -143,6 +139,6 @@ jobs:
           sudo git add Qt-${{ env.Qt_patch_version }}
           sudo git commit -m "Initial commit"
           sudo git branch -M main
-          sudo git remote add origin https://${{ env.PAT }}@github.com/faojdoai324234s/Qt-Linux.git
+          sudo git remote add origin https://${{ env.PAT }}@github.com/faojdoai324234s/Qt-macOS.git
           sudo git remote -v
           sudo git push origin main
