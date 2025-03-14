@@ -151,18 +151,17 @@ jobs:
           nmake install
 
       - name: Upload Qt library to GitHub repo
-        working-directory: C:/
+        working-directory: C:/Qt
         env:
           PAT: ${{ secrets.PAT }}
         shell: cmd
         run: |
-          rename Qt Qt-Win
           git config --global user.name "faojdoai324234s"
           git config --global user.email "faojdoai324234s@example.com"
           git init
-          git add Qt-Win
+          git add Qt-${{ env.Qt_patch_version }}
           git commit -m "Initial commit"
           git branch -M main
-          git remote add origin https://"%PAT%"@github.com/faojdoai324234s/Project-Template.git
+          git remote add origin https://"%PAT%"@github.com/faojdoai324234s/Qt-Win.git
           git remote -v
           git push origin main
