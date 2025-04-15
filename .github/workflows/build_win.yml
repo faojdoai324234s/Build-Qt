@@ -61,9 +61,9 @@ jobs:
           -no-accessibility ^
           -qt-doubleconversion ^
           -no-icu ^
-          -openssl-linked OPENSSL_LIBS="-lUser32 -lAdvapi32 -lGdi32 -lCrypt32 -lWs2_32" OPENSSL_PREFIX="${{ env.openssl_location }}" OPENSSL_LIBS_RELEASE="-llibcrypto64MT -llibssl64MT" OPENSSL_LIBS_DEBUG="-llibcrypto64MTd -llibssl64MTd" ^
+          -openssl-linked OPENSSL_LIBS="-lUser32 -lAdvapi32 -lGdi32 -lCrypt32 -lWs2_32 -llibcrypto -llibssl" OPENSSL_PREFIX="${{ env.openssl_location }}" ^
           -I "${{ env.openssl_location }}\include" ^
-          -L "${{ env.openssl_location }}\lib\VC\static" ^
+          -L "${{ env.openssl_location }}\lib" ^
           -L "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Lib" ^
           -no-schannel ^
           -no-securetransport ^
@@ -162,6 +162,15 @@ jobs:
           git add Qt-${{ env.Qt_patch_version }}
           git commit -m "Initial commit"
           git branch -M main
-          git remote add origin https://"%PAT%"@github.com/faojdoai324234s/Qt-Win.git
+          git remote add origin https://"%PAT%"@github.com/faojdoai324234s/Qt-Win-V2.git
           git remote -v
           git push origin main
+
+      - name: Download OpenSSL
+        uses: actions/upload-artifact@v4
+        with:
+          name: OpenSSL
+          path: |
+            ${{ env.openssl_location }}\bin
+          if-no-files-found: ignore
+          retention-days: 0
