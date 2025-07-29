@@ -10,13 +10,13 @@ on:
 
 env:
   Qt_minor_version: 5.15
-  Qt_patch_version: 5.15.16
+  Qt_patch_version: 5.15.17
   openssl_location: C:\Program Files\OpenSSL
   sevenzip_location: C:\Program Files\7-Zip
   
 jobs:
   build:
-    runs-on: windows-2019
+    runs-on: windows-2022
     steps:
       - uses: ilammy/msvc-dev-cmd@v1
       - name: Download Qt ${{ env.Qt_patch_version }}
@@ -51,7 +51,8 @@ jobs:
           -opensource ^
           -confirm-license ^
           -debug-and-release ^
-          -shared ^
+          -static ^
+          -static-runtime ^
           -platform win32-msvc ^
           -mp ^
           -nomake examples ^
@@ -162,7 +163,7 @@ jobs:
           git add Qt-${{ env.Qt_patch_version }}
           git commit -m "Initial commit"
           git branch -M main
-          git remote add origin https://"%PAT%"@github.com/faojdoai324234s/Qt-Win-V2.git
+          git remote add origin https://"%PAT%"@github.com/faojdoai324234s/Qt-Win-V3.git
           git remote -v
           git push origin main
 
