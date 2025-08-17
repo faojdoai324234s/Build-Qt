@@ -47,6 +47,9 @@ jobs:
         run: |
           choco install ninja
 
+      - uses: ilammy/msvc-dev-cmd@v1
+        with:
+          toolset: 14.16
       - name: Configure Qt ${{ env.Qt_patch_version }}
         working-directory: C:/qt-everywhere-src-${{ env.Qt_patch_version }}
         shell: cmd
@@ -143,9 +146,6 @@ jobs:
           -skip qtx11extras ^
           -skip qtxmlpatterns
 
-      - uses: ilammy/msvc-dev-cmd@v1
-        with:
-          toolset: 14.16
       - name: Build Qt ${{ env.Qt_patch_version }}
         working-directory: C:/qt-everywhere-src-${{ env.Qt_patch_version }}
         shell: pwsh
