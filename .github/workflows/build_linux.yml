@@ -10,7 +10,7 @@ on:
 
 env:
   Qt_minor_version: 5.15
-  Qt_patch_version: 5.15.16
+  Qt_patch_version: 5.15.17
   openssl_header_location: /usr/include
   openssl_lib_location: /usr/lib/x86_64-linux-gnu
   
@@ -47,7 +47,7 @@ jobs:
           -opensource \
           -confirm-license \
           -release \
-          -shared \
+          -static \
           -platform linux-clang \
           -nomake examples \
           -nomake tests \
