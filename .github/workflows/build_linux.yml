@@ -69,6 +69,11 @@ jobs:
           -opengl desktop \
           -no-direct2d \
           -no-eglfs \
+          -no-libudev \
+          -no-xkbcommon \
+          -gif \
+          -qt-libpng \
+          -qt-libjpeg \
           -no-ico \
           -no-sql-db2 \
           -no-sql-ibase \
