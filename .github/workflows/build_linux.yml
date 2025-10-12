@@ -55,7 +55,6 @@ jobs:
           -no-dbus \
           -no-accessibility \
           -qt-doubleconversion \
-          -no-glib \
           -no-icu \
           -openssl-linked \
           -I "${{ env.openssl_header_location }}" \
