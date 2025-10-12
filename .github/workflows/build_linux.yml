@@ -47,7 +47,7 @@ jobs:
           -opensource \
           -confirm-license \
           -release \
-          -static \
+          -shared \
           -platform linux-clang \
           -nomake examples \
           -nomake tests \
