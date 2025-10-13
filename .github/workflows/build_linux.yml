@@ -158,6 +158,6 @@ jobs:
           sudo git add Qt-${{ env.Qt_patch_version }}
           sudo git commit -m "Initial commit"
           sudo git branch -M main
-          sudo git remote add origin https://${{ env.PAT }}@github.com/faojdoai324234s/Qt-Linux.git
+          sudo git remote add origin https://${{ env.PAT }}@github.com/faojdoai324234s/Qt-Linux-Static.git
           sudo git remote -v
           sudo git push origin main
