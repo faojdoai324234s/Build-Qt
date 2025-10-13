@@ -18,6 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     steps:        
+      - uses: actions/checkout@v4
       - name: Download Qt ${{ env.Qt_patch_version }}
         run: |
           wget https://download.qt.io/archive/qt/${{ env.Qt_minor_version }}/${{ env.Qt_patch_version }}/single/qt-everywhere-opensource-src-${{ env.Qt_patch_version }}.tar.xz
